@@ -7,11 +7,16 @@ Se comienza por la creacion de carga de usuarios en archivo arUsuarios
 Se prueba commits via upload en la pagina de github
 
 TODO
-buscar Usuario
-por id
-por nombre
-por TIPOADMIN
+buscar Usuario--
+por id--
+por nombre--
+check TIPOADMIN--
+getbyID--
 eliminar usuario sabiendo el id
+
+en mostrar que sea activo = 1--
+en buscar que sea = 1 --
+
 menu login
 funcion login
 funcion comparar para el login

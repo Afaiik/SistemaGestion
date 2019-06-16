@@ -43,7 +43,7 @@ typedef struct Factura
 int cargaUnUsuario(Usuario usua[], int val);
 
 ///Mostrar usuarios
-void mostrarUnUsuario(Usuario usuaAux[], int pos);
+void mostrarUnUsuario(Usuario usua);
 void mostrarArregloUsuarios(Usuario usua[], int val);
 
 ///Agrega al final del archivo el arreglo de Usuarios
@@ -76,21 +76,22 @@ int main()
     int testAdmin;
     char nombreAux[30];
     char nombreTest[30];
-    val = agregaUsuariosEnArchivo(efra,val,dim);
+    cargaArchivoUsuarios();
 
     mostrarArchivoUsuarios(archivoUsuarios);
 
     return 0;
 }
 
-int cargaUnUsuario(Usuario usua[], int val)
-{
+
+void cargaArchivoUsuarios(){
+
+    Usuario usua;
     int codAdmin;
     int valido = 0;
     char nombreAux[30];
-    usua[val].Activo = 1;
-    usua[val].Id = getUltimoIdUsuario(archivoUsuarios)+1;
-
+    usua.Activo = 1;
+    usua.Id = getUltimoIdUsuario(archivoUsuarios)+1;
     system("cls");
 
     while(valido == 0)
@@ -102,7 +103,7 @@ int cargaUnUsuario(Usuario usua[], int val)
         if(checkExisteUsuarioNombre(nombreAux,archivoUsuarios) == 0)
         {
             valido = 1;
-            strcpy(usua[val].Nombre, nombreAux);
+            strcpy(usua.Nombre, nombreAux);
         }else
         {
             system("cls");
@@ -113,36 +114,39 @@ int cargaUnUsuario(Usuario usua[], int val)
             gotoxy(0,0);
             system("cls");
         }
-
     }
-
-
     printf("\nPassword.....................:");
     fflush(stdin);
-    gets(usua[val].Contra);
+    gets(usua.Contra);
 
     printf("\nSi posee codigo de Administrador, Ingreselo..:");
     scanf("%d", &codAdmin);
     if(codAdmin == CODADMIN)
-        usua[val].Tipo = TIPOADMIN;
+        usua.Tipo = TIPOADMIN;
     else///TIPO DE USUARIO 1 ADMIN 0 USUARIO REGULAR
-        usua[val].Tipo = TIPONORMAL;
+        usua.Tipo = TIPONORMAL;
 
-    val++;
+    guardarUsuario(usua);
 
-    return val;
 }
 
-void mostrarUnUsuario(Usuario usuaAux[], int pos)
-{
+void guardarUsuario(Usuario usua){
+    FILE *pArchUsuarios = fopen(archivoUsuarios,"ab");
+    if(pArchUsuarios != NULL){
+        fwrite(&usua, sizeof(Usuario),1,pArchUsuarios);
+        fclose(pArchUsuarios);
+    }
+}
 
-    if(usuaAux[pos].Activo == 1)
+void mostrarUnUsuario(Usuario usua)
+{
+    if(usua.Activo == 1)
     {
-        printf("\n ID: %d", usuaAux[pos].Id);
-        printf("\n Activo: %d", usuaAux[pos].Activo);
-        printf("\n Tipo: %d", usuaAux[pos].Tipo);
-        printf("\n Nombre: %s", usuaAux[pos].Nombre);
-        printf("\n contrase�a: %s", usuaAux[pos].Contra);
+        printf("\n ID: %d", usua.Id);
+        printf("\n Activo: %d", usua.Activo);
+        printf("\n Tipo: %d", usua.Tipo);
+        printf("\n Nombre: %s", usua.Nombre);
+        printf("\n contrase�a: %s", usua.Contra);
         printf("\n____________________");
     }
 }
@@ -151,35 +155,8 @@ void mostrarArregloUsuarios(Usuario usua[], int val)
 {
     for(int i = 0; i < val; i++)
     {
-        mostrarUnUsuario(usua,i);
+        mostrarUnUsuario(usua[i]);
     }
-}
-
-int agregaUsuariosEnArchivo(Usuario usua[],int val, int dim)
-{
-
-    int opcion = 0;
-    Usuario usuario;
-    FILE *arUsua;
-
-
-    while((val < dim) && (opcion != ESC) && (arUsua != NULL))
-    {
-        arUsua = fopen(archivoUsuarios, "ab");
-        if(arUsua!=NULL)
-        {
-            system("cls");
-            val = cargaUnUsuario(usua, val);
-            usuario = usua[val-1];
-            fwrite(&usuario, sizeof(Usuario), 1, arUsua);
-            printf("\n\t\tESC PARA SALIR");
-            opcion = getch();
-        }
-        fclose(arUsua);
-    }
-
-
-    return val;
 }
 
 void mostrarArchivoUsuarios(char arUsuarios[])
@@ -195,12 +172,7 @@ void mostrarArchivoUsuarios(char arUsuarios[])
         {
             if(usuaAux.Activo == 1)
             {
-                printf("\n ID: %d", usuaAux.Id);
-                printf("\n Activo: %d", usuaAux.Activo);
-                printf("\n Tipo: %d", usuaAux.Tipo);
-                printf("\n Nombre: %s", usuaAux.Nombre);
-                printf("\n contrase�a: %s", usuaAux.Contra);
-                printf("\n____________________");
+                mostrarUnUsuario(usuaAux);
             }
         }
         fclose(archi);
