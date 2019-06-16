@@ -164,7 +164,7 @@ void doLogin()
             getch();
             gotoxy(0,0);
             system("cls");
-            enDesarrollo();
+            menuPrincipal();
         }
     }
 }
@@ -200,6 +200,39 @@ void menuLogin()
        printf("fucku");
     }
 
+
+}
+
+void menuPrincipal()
+{
+    int opcion;
+    system("cls");
+    showTituloBienvenido();
+    printf("\n");
+    printf("\n1- Gestionar productos");
+    printf("\n2- Gestionar usuarios");
+    printf("\n3- Facturar\n ");
+
+    opcion = getch();
+    printf("\n %d", opcion);
+
+    switch(opcion) {
+
+       case 49:
+          enDesarrollo();
+          break;
+
+       case 50:
+          enDesarrollo();
+          break;
+
+       case 51:
+          enDesarrollo();
+          break;
+
+       default :
+       printf("fucku");
+    }
 
 }
 void enDesarrollo()

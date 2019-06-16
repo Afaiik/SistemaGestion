@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1560653855 source:c:\users\afaik\documents\sistemagestion\main.c
+1560653950 source:c:\users\afaik\documents\sistemagestion\main.c
 	<stdio.h>
 	<stdlib.h>
 	<strings.h>
