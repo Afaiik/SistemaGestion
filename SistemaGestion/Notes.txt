@@ -5,21 +5,16 @@ Se crean las primeras estructuras y comenzar el trabajo en el login
 Se comienza por la creacion de carga de usuarios en archivo arUsuarios
 1er problema ID autoincremental, no me salia porque no cerraba el archivo antes de buscar el nuevo id mayor
 Se prueba commits via upload en la pagina de github
+Se arreglan parametros de funciones (array to usua)
+Se arregla prototipado
+Se continua con menu y login
 
 TODO
-buscar Usuario--
-por id--
-por nombre--
-check TIPOADMIN--
-getbyID--
-eliminar usuario sabiendo el id
+[FIX] eliminar usuario sabiendo el id
+Modificar usuario
 
-en mostrar que sea activo = 1--
-en buscar que sea = 1 --
 
 menu login
 funcion login
-funcion comparar para el login
-agregar en crear usuario que el login USERNAME no este en uso
-
+funcion comparar para el login (creo que ya esta)
 
