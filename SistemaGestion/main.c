@@ -39,31 +39,39 @@ typedef struct Factura
     float PrecioTotal;
 }Factura;
 
-///Crear usuarios
-int cargaUnUsuario(Usuario usua[], int val);
+///Carga el archivo de Usuarios
+void cargaArchivoUsuarios();
 
-///Mostrar usuarios
+///Guarda un usuario (Usada por cargaArchivoUsuarios)
+void guardarUsuario(Usuario usua);
+
+///Muestra un usuario
 void mostrarUnUsuario(Usuario usua);
-void mostrarArregloUsuarios(Usuario usua[], int val);
 
-///Agrega al final del archivo el arreglo de Usuarios
-int agregaUsuariosEnArchivo(Usuario usua[],int val, int dim);
-
-///Muestra todos los usuarios del archivo
+///Mostrar un archivo de usuarios (usa MostrarUnUsuario)
 void mostrarArchivoUsuarios(char arUsuarios[]);
 
-///Devuelve el mayor ID del archivo
+///Muestra un arreglo de usuarios (usa MostrarUnUsuario)
+void mostrarArregloUsuarios(Usuario usua[], int val);
+
+///Busca el mayor ID dentro de los usuarios
 int getUltimoIdUsuario(char archivo[]);
 
-///Checkea si el usuario existe
+///Busca si existe un ID indicado, devuelve 1 o 0
 int checkExisteUsuarioId(int idBuscado, char arUsuarios[]);
-int checkExisteUsuarioNombre(char nombreBuscado[], char arUsuario[]);
+///IDEM pero busca por nombre
+int checkExisteUsuarioNombre(char nombreBuscado[], char arUsuarios[])
 
-///Checkea si el usuario es administrador
+///Busca un usuario por ID y checkea si es ADMIN, devuelve -1 error no abrio archivo, 0 no es admin, 1 es admin
 int checkTipoUsuarioById(int usuaId, char arUsuarios[]);
 
-///Devuelve el usuario con el id asociado, devuelve usuario.Id = -1 si no se encontro.
+///Devuelve el usuario buscado por ID
 Usuario getUsuarioById(int idBuscado, char arUsuarios[]);
+
+///Baja Logica de usuario buscandolo por ID (Activo = 0)
+int eliminarUsuarioById(int usuaId, char arUsuarios[])
+
+
 
 int main()
 {
@@ -359,4 +367,5 @@ int eliminarUsuarioById(int usuaId, char arUsuarios[])
     }
    return flag;
 }
+
 
