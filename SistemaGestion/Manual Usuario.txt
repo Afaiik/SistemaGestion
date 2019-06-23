@@ -1,0 +1,26 @@
+Al principio cuando corres el programa se abre el menu de login, el cual te da dos opciones
+1- crear cuenta
+2- loguearse con una cuenta existente
+Al crearse una cuenta el sistema solicitara el nombre de usuario, contraseña y si se tiene, un codigo de administrador
+que hara que al ingresar al sistema con esta cuenta, se tengan mejores funcionalidades como gestionar los productos
+eliminar usuarios, cambiar precios, etc
+en cambio si uno se loguea con una cuenta de usuario regular el menu principal tendra diferentes opciones (limitadas)
+
+Al ingresar al menu principal (ya logueado) existen 3 opciones que varian segun el tipo de cuenta
+si es usuario regular
+1- Facturar
+2- Listar productos
+3- Cambiar password
+En cambio si el usuario es administrador mostrara
+1- Gestionar productos
+2- Gestionar usuarios
+3- Facturar
+
+----Gestion de usuarios
+tiene balbalbla opciones
+
+----Gestion de Productos
+blablabla
+
+---Facturacion
+blabllabla

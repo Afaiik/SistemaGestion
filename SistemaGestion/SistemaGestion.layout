@@ -2,21 +2,9 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="gotoxy.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="13" />
-		</Cursor>
-	</File>
 	<File name="main.c" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="7929" topLine="309" />
+			<Cursor1 position="12022" topLine="437" />
 		</Cursor>
-		<Folding>
-			<Collapse line="16" />
-			<Collapse line="25" />
-			<Collapse line="136" />
-			<Collapse line="150" />
-			<Collapse line="185" />
-		</Folding>
 	</File>
 </CodeBlocks_layout_file>

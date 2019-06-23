@@ -7,14 +7,21 @@ Se comienza por la creacion de carga de usuarios en archivo arUsuarios
 Se prueba commits via upload en la pagina de github
 Se arreglan parametros de funciones (array to usua)
 Se arregla prototipado
-Se continua con menu y login
+Se continua con menu y login (listo)
+Se hace funcion de modificar password
+2do problema se rompio la funcion de crear usuarios, ya no escribe mas en el archivo
+Se soluciono el problema considerando la situacion en la que el archivo no exista, primero se habia creado el archivo y las validaciones se hicieron despues por lo que el caso no estaba contemplado
+Se continua con las funciones de listados de usuarios
+
+CONTINUAR CON ELIMINACION DE USUARIOS QUE QUEDO CHOTA
+
 
 TODO
 [FIX] eliminar usuario sabiendo el id
 Modificar usuario
+integrar funciones a los menus
+
+separar en diferentes archivos las funciones
 
 
-menu login
-funcion login
-funcion comparar para el login (creo que ya esta)
 

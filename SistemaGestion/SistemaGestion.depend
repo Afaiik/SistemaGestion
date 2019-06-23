@@ -1,14 +1,14 @@
 # depslib dependency file v1.0
-1560653950 source:c:\users\afaik\documents\sistemagestion\main.c
-	<stdio.h>
-	<stdlib.h>
-	<strings.h>
-	"gotoxy.h"
-
 1491400450 source:c:\users\afaik\documents\sistemagestion\gotoxy.c
 	<stdio.h>
 	<stdlib.h>
 	<windows.h>
+
+1561268764 source:c:\users\afaik\documents\sistemagestion\main.c
+	<stdio.h>
+	<stdlib.h>
+	<strings.h>
+	"gotoxy.h"
 
 1491399896 c:\users\afaik\documents\sistemagestion\gotoxy.h
 
