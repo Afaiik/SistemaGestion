@@ -4,11 +4,20 @@
 	<stdlib.h>
 	<windows.h>
 
-1561268764 source:c:\users\afaik\documents\sistemagestion\main.c
+1561851018 source:c:\users\afaik\documents\sistemagestion\main.c
 	<stdio.h>
 	<stdlib.h>
 	<strings.h>
+	<time.h>
 	"gotoxy.h"
+	"FuncionesProductos.h"
 
 1491399896 c:\users\afaik\documents\sistemagestion\gotoxy.h
+
+1561850587 source:c:\users\afaik\documents\sistemagestion\funcionesproductos.c
+	<stdio.h>
+	<stdlib.h>
+	<strings.h>
+
+1561850404 c:\users\afaik\documents\sistemagestion\funcionesproductos.h
 

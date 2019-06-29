@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <strings.h>
+#include <time.h>
 
 #include "gotoxy.h"
+#include "FuncionesProductos.h"
 
 #define archivoUsuarios "arUsuarios.dat"
 #define archivoProductos "arProductos.dat"
@@ -23,22 +25,24 @@ typedef struct Usuario
     char Contra[30];
 }Usuario;
 
-typedef struct Producto
-{
-    int Rubro;
-    int Stock;
-    int Activo;
-    char Descripcion[50];
-}Producto;
 
 typedef struct Factura
 {
     int VededorId;
-    char Fecha;
+    char Fecha[30];
     int NumeroFactura;
     Producto Productos[100];
     float PrecioTotal;
 }Factura;
+
+void vender(){
+    Producto ProdComprado;
+    
+    Factura fac;
+
+    fac. Productos[0] = ProdComprado;
+
+}
 
 ///Crea usuarios en loop
 void cargaArchivoUsuarios();
@@ -107,21 +111,24 @@ void eliminarMiUsuario(Usuario usuaLogueado);
 int main()
 {
     Usuario usuarioLogueado;
+    system("color F0");
 
-    mostrarArchivoUsuarios(archivoUsuarios);
-    menuLogin();
+    ///menuLogin();
+    getch();
+    CargarProductos();
+    MostrarArchivoProductos(archivoProductos);
 
     return 0;
 }
 
 void showTituloBienvenido(){
-    color(10);
+    ///color(10);
     printf("\n########  #### ######## ##    ## ##     ## ######## ##    ## #### ########   #######  \n##     ##  ##  ##       ###   ## ##     ## ##       ###   ##  ##  ##     ## ##     ## \n##     ##  ##  ##       ####  ## ##     ## ##       ####  ##  ##  ##     ## ##     ## \n########   ##  ######   ## ## ## ##     ## ######   ## ## ##  ##  ##     ## ##     ## \n##     ##  ##  ##       ##  ####  ##   ##  ##       ##  ####  ##  ##     ## ##     ## \n##     ##  ##  ##       ##   ###   ## ##   ##       ##   ###  ##  ##     ## ##     ## \n########  #### ######## ##    ##    ###    ######## ##    ## #### ########   #######  \n");
 
 }
 
 void showTituloLogin(){
-    color(10);
+    ///color(10);
     printf("\n\t\t##        #######   ######   #### ##    ## \n\t\t##       ##     ## ##    ##   ##  ###   ## \n\t\t##       ##     ## ##         ##  ####  ## \n\t\t##       ##     ## ##   ####  ##  ## ## ## \n\t\t##       ##     ## ##    ##   ##  ##  #### \n\t\t##       ##     ## ##    ##   ##  ##   ### \n\t\t########  #######   ######   #### ##    ## \n");
 }
 
@@ -159,7 +166,7 @@ void doLogin()
             system("cls");
             printf("\a");
             gotoxy(30,10);
-            color(4);
+            //color(4);
             printf("DATOS INCORRECTOS");
             getch();
             gotoxy(0,0);
@@ -168,7 +175,7 @@ void doLogin()
         {
             system("cls");
             gotoxy(30,10);
-            color(10);
+            //color(10);
             printf("-.LOGIN OK.-");
             getch();
             gotoxy(0,0);
@@ -183,6 +190,7 @@ void menuLogin()
     int opcion;
     int opcionValida = 0;
     ///system("cls");
+    mostrarArchivoUsuarios(archivoUsuarios);
     showTituloBienvenido();
     printf("\n");
     printf("\n\t1- Crear Usuario");
@@ -207,11 +215,12 @@ void menuLogin()
             default:
                 system("cls");
                 gotoxy(30,10);
-                color(4);
+                //color(4);
                 printf("OPCION INVALIDA");
                 getch();
                 gotoxy(0,0);
                 system("cls");
+                break;
         }
     }
 }
@@ -222,7 +231,7 @@ void menuPrincipal(Usuario usuaLogueado)
     int opcionValida = 0;
     system("cls");
     showTituloBienvenido();
-    
+
     if(usuaLogueado.Tipo == TIPOADMIN){
         printf("\n");
         printf("\n\t1- Gestionar productos");
@@ -377,10 +386,10 @@ void menuModificarPassword(Usuario usuaLogueado)
     char newPassAux[30];
     char passActual[30];
     int valido = 0;
-    
+
     while(valido != 1)
         {
-            
+
         while(valido != 1)
         {
             system("cls");
@@ -460,7 +469,7 @@ void cargaArchivoUsuarios(){
             system("cls");
             printf("\a");
             gotoxy(15,5);
-            color(4);
+            //color(4);
             printf("Ese usuario ya se encuentra en uso!");
             getch();
             gotoxy(0,0);
@@ -495,14 +504,12 @@ void crearUnUsuario()
 
     while(valido == 0)
     {
-        color(10);
+        //color(10);
         printf("\n\t\t<<<<<<<<<< CREACION DE USUARIO >>>>>>>>>>");
         printf("\nNombre de Usuario..............:");
         fflush(stdin);
         scanf("%s", &nombreAux);
         checkExist = checkExisteUsuarioNombre(nombreAux, archivoUsuarios);
-        printf("CHECKEXIST ----->>>>> %d", checkExist);
-        system("pause");
         if((checkExisteUsuarioNombre(nombreAux, archivoUsuarios) == 0) || (checkExisteUsuarioNombre(nombreAux, archivoUsuarios) == -1))
         {
             valido = 1;
@@ -532,7 +539,7 @@ void crearUnUsuario()
     guardarUsuario(usua);
     menuLogin();
 }
-       
+
 void guardarUsuario(Usuario usua){
     FILE *pArchUsuarios = fopen(archivoUsuarios,"a+b");
     if(pArchUsuarios != NULL){
@@ -615,7 +622,7 @@ int checkExisteUsuarioId(int idBuscado, char arUsuarios[])
 
     if(pArch != NULL)
     {
-        while(fread(&usua, sizeof(Usuario), 1, pArch)>0)
+        while(fread(&usua, sizeof(Usuario), 1, pArch) > 0)
         {
             if((usua.Id == idBuscado) && (usua.Activo == 1))
             {
@@ -626,7 +633,7 @@ int checkExisteUsuarioId(int idBuscado, char arUsuarios[])
         {
             flag = 0;
         }
-        fclose(pArch);
+    fclose(pArch);
     }
 
    return flag;
@@ -654,7 +661,7 @@ int checkExisteUsuarioNombre(char nombreBuscado[], char arUsuarios[])
         }
         fclose(pArch);
     }
-    
+
    return flag;
 }
 
@@ -780,7 +787,7 @@ void interfazEliminarUsuarioById(Usuario usuaLogueado)
         system("cls");
         printf("\nIntroduzca el ID del usuario a ELIMINAR");
         scanf("%d", &usuaId);
-        if(getUltimoIdUsuario(archivoUsuarios)<= usuaId)
+        if(getUltimoIdUsuario(archivoUsuarios) <= usuaId)
         {
             if(checkExisteUsuarioId(usuaId, archivoUsuarios) == 0)
             {
@@ -806,7 +813,7 @@ void interfazEliminarUsuarioById(Usuario usuaLogueado)
                         menuGestionUsuarios(usuaLogueado);
                     }else
                     {
-                        
+
                         system("cls");
                         printf("\a");
                         gotoxy(15,5);
@@ -853,6 +860,8 @@ int eliminarUsuarioById(int usuaId)
             {
                 if(usua.Activo == 1)
                 {
+                    mostrarUnUsuario(usua);
+                    getch();
                     flag = 1;
                     usua.Activo = 0;
                     fseek(pArch, sizeof(Usuario)*(-1), SEEK_CUR);
@@ -861,7 +870,7 @@ int eliminarUsuarioById(int usuaId)
 
             }
         }
-        fclose(pArch);
+    fclose(pArch);
     }
    return flag;
 }
@@ -869,16 +878,22 @@ int eliminarUsuarioById(int usuaId)
 void eliminarMiUsuario(Usuario usuaLogueado)
 {
     Usuario usua;
-    int flag = 0;
+    int flag = -1;
     FILE *pArch;
     char opcion;
-    printf("cls");
-    printf("\nESTA SEGURO DE ELIMINAR SU USUARIO ??");
+    system("cls");
+    printf("\n\t\t<<<<<<<<<ELIMINACION DE USUARIOS>>>>>>>>>");
+    printf("\n\n\t\tESTA SEGURO DE ELIMINAR SU USUARIO ?? S/N \n");
     fflush(stdin);
-    scanf("%c", opcion);
+    scanf("%c", &opcion);
     if((opcion == 'S') || (opcion == 's'))
     {
+        printf("\nMI USUARIO:");
+        mostrarUnUsuario(usuaLogueado);
+        getch();
         flag = eliminarUsuarioById(usuaLogueado.Id);
+        printf("\nFLAG---> %d", flag);
+        getch();
         if(flag == 1)
         {
             system("cls");
@@ -891,7 +906,7 @@ void eliminarMiUsuario(Usuario usuaLogueado)
             menuLogin();
         }else
         {
-            
+
             system("cls");
             printf("\a");
             gotoxy(15,5);
@@ -908,7 +923,7 @@ void eliminarMiUsuario(Usuario usuaLogueado)
 
 void menuEliminarUsuarios(Usuario usuaLogueado)
 {
-        
+
     int opcion;
     int opcionValida = 0;
     system("cls");
@@ -926,7 +941,7 @@ void menuEliminarUsuarios(Usuario usuaLogueado)
         printf("\n\t\t<<<<<<<<<ELIMINACION DE USUARIOS>>>>>>>>>");
         printf("\n1-Eliminar mi usuario");
     }
-    
+
     while(opcionValida != 1)
     {
         opcion = getch();
@@ -945,7 +960,7 @@ void menuEliminarUsuarios(Usuario usuaLogueado)
               break;
 
             case 50:
-               
+
               if(usuaLogueado.Tipo == TIPOADMIN)
                {
                     opcionValida = 1;

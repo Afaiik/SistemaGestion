@@ -11,7 +11,7 @@ Se continua con menu y login (listo)
 Se hace funcion de modificar password
 2do problema se rompio la funcion de crear usuarios, ya no escribe mas en el archivo
 Se soluciono el problema considerando la situacion en la que el archivo no exista, primero se habia creado el archivo y las validaciones se hicieron despues por lo que el caso no estaba contemplado
-Se continua con las funciones de listados de usuarios
+Se continua con las funciones de listados de usuarios))???
 
 CONTINUAR CON ELIMINACION DE USUARIOS QUE QUEDO CHOTA
 
