@@ -14,4 +14,8 @@ void CargarProductos();
 void MostrarUnProducto(Producto produc);
 void MostrarArregloProdCargados(Producto Produc[], int val);
 void MostrarArchivoProductos(char arProductos[]);
-
+int getUltimoIdProducto(char archivo[]);
+Producto buscarProductoPorNombre();
+Producto buscarProductoPorRubro();
+Producto buscarProductoPorPrecio();
+Producto buscarProductoPorId(int id);

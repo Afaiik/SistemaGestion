@@ -35,6 +35,14 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="FuncionesProductos.h" />
+		<Unit filename="FuncionesUsuarios.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="FuncionesUsuarios.h" />
+		<Unit filename="Menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Menu.h" />
 		<Unit filename="gotoxy.c">
 			<Option compilerVar="CC" />
 		</Unit>

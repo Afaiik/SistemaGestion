@@ -4,20 +4,37 @@
 	<stdlib.h>
 	<windows.h>
 
-1561851018 source:c:\users\afaik\documents\sistemagestion\main.c
+1562119382 source:c:\users\afaik\documents\sistemagestion\main.c
 	<stdio.h>
 	<stdlib.h>
 	<strings.h>
 	<time.h>
 	"gotoxy.h"
 	"FuncionesProductos.h"
+	"FuncionesUsuarios.h"
 
 1491399896 c:\users\afaik\documents\sistemagestion\gotoxy.h
 
-1561850587 source:c:\users\afaik\documents\sistemagestion\funcionesproductos.c
+1562038140 source:c:\users\afaik\documents\sistemagestion\funcionesproductos.c
 	<stdio.h>
 	<stdlib.h>
 	<strings.h>
 
-1561850404 c:\users\afaik\documents\sistemagestion\funcionesproductos.h
+1562038134 c:\users\afaik\documents\sistemagestion\funcionesproductos.h
+
+1562027007 source:c:\users\afaik\documents\sistemagestion\funcionesusuarios.c
+	<stdio.h>
+	<stdlib.h>
+	<strings.h>
+	<time.h>
+	"gotoxy.h"
+	"FuncionesProductos.h"
+	"FuncionesUsuarios.h"
+
+1562026987 c:\users\afaik\documents\sistemagestion\funcionesusuarios.h
+
+1562027068 source:c:\users\afaik\documents\sistemagestion\menu.c
+	<stdio.h>
+	<stdlib.h>
+	<strings.h>
 
